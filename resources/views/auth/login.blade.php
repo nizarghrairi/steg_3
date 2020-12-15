@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app-auth')
 
 @section('content')
     <!-- Outer Row -->
@@ -73,11 +73,6 @@
                                         </div>
                                     </div>
                                 </form>
-
-                                <hr>
-                                <div class="text-center">
-                                    <a class="small" href="{{ route('password.request') }}">Forgot Password?</a>
-                                </div>
                             </div>
                         </div>
                     </div>

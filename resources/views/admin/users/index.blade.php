@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">Liste des gestionnaire</div>
 
@@ -26,7 +26,7 @@
                                     <td >{{$user->email}}</td>
                                     <td >{{ implode(', ', $user->roles()->get()->pluck('name')->toArray())}}</td>
                                     <td>
-                                        <a href="{{route('admin.users.edit', $user->id)}}"><button class="btn btn-primary">editer</button></a>
+                                        <a href="{{route('admin.users.edit', $user->id)}}"><button class="btn btn-primary float-left">editer</button></a>
                                         @can('delete-users')
                                             <form action="{{route('admin.users.destroy', $user->id)}}" method="POST" class="d-inline ">
                                                 @csrf

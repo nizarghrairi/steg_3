@@ -18,11 +18,11 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{asset('vendor/css/sb-admin.css')}}">
+    <link rel="stylesheet" href="{{asset('vendor/css/sb-admin.min.css')}}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
     <!-- Custom style for this template-->
-    <link href="{{asset('vendor/css/fontawesome/css/all.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{asset('vendor/css/fontawesome/css/all.min.css')}}" rel="stylesheet" type="text/css">
 </head>
 <body class="bg-gradient-primary">
     <div id="app">
@@ -69,9 +69,6 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
-                                    @can('show-users')
-                                    <a class="dropdown-item" href="{{route('admin.users.index')}}"> liste des gestionnaires</a>
-                                    @endcan
                                 </div>
                             </li>
                         @endguest
@@ -119,6 +116,6 @@
     <!-- core plugin Javascript-->
     <script src="{{asset('vendor/js/jquery-easing/jquery-easing.min.js')}}"></script>
     <!--custume script for all pages-->
-    <script src="{{asset('vendor/js/sb-admin.js')}}"></script>--}}
+    <script src="{{asset('vendor/js/sb-admin.min.js')}}"></script>--}}
 </body>
 </html>
