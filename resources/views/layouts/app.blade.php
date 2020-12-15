@@ -18,9 +18,13 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('vendor/css/sb-admin.css')}}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- Custom style for this template-->
+    <link href="{{asset('vendor/css/fontawesome/css/all.css')}}" rel="stylesheet" type="text/css">
 </head>
-<body>
+<body class="bg-gradient-primary">
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
@@ -44,11 +48,11 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
-                            @if (Route::has('register'))
+                            {{--@if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
-                            @endif
+                            @endif--}}
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -65,7 +69,9 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
+                                    @can('show-users')
                                     <a class="dropdown-item" href="{{route('admin.users.index')}}"> liste des gestionnaires</a>
+                                    @endcan
                                 </div>
                             </li>
                         @endguest
@@ -74,9 +80,45 @@
             </div>
         </nav>
 
-        <main class="py-4">
-            @yield('content')
-        </main>
+        <!-- Page Wrapper -->
+        <div id="wrapper">
+
+        @include('partial.gestionnaire.sidebar')
+
+        <!-- Content Wrapper -->
+            <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+                <div id="content">
+                    <!-- Begin Page Content -->
+                    <div class="container-fluid pt-4">
+                        @yield('content')
+                    </div>
+                    <!-- /.container-fluid -->
+
+                </div>
+                <!-- End of Main Content -->
+
+                <!-- Footer -->
+                <footer class="sticky-footer bg-white">
+                    <div class="container my-auto">
+                        <div class="copyright text-center my-auto">
+                            <span>Copyright &copy; {{ config('app.name') }} 2020</span>
+                        </div>
+                    </div>
+                </footer>
+                <!-- End of Footer -->
+
+            </div>
+            <!-- End of Content Wrapper -->
+
+        </div>
+        <!-- End of Page Wrapper -->
+
     </div>
+    <!-- core plugin Javascript-->
+    <script src="{{asset('vendor/js/jquery-easing/jquery-easing.min.js')}}"></script>
+    <!--custume script for all pages-->
+    <script src="{{asset('vendor/js/sb-admin.js')}}"></script>--}}
 </body>
 </html>
