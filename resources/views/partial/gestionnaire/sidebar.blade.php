@@ -12,12 +12,25 @@
 
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
+    @can('show-users')
+        <li class="nav-item">
+            <a href="{{route('admin.agent.index')}}" class="nav-link">
+                <i class=" fa-user">Agent</i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="{{route('admin.agent_fiche.index')}}" class="nav-link">
+                <i class=" fa-user">Fiche Agent</i>
+            </a>
+        </li>
+    @endcan
 
     <li class="nav-item">
-        <a href="{{route('admin.agent.index')}}" class="nav-link">
-            <i class="fa fa-user">Agent</i>
+        <a href="{{route('gest.bons.index')}}" class="nav-link">
+            <i class=" fa-user">Bon</i>
         </a>
     </li>
+
 
 
 

@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Agent;
+use App\bon;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
+use App\Agent_Fiche;
 
-class AgentsController extends Controller
+class Agents_FichesController extends Controller
 {
     public function __construct()
     {
@@ -20,8 +20,8 @@ class AgentsController extends Controller
      */
     public function index()
     {
-        $agents =Agent::all();
-        return view('admin.agent.index', compact('agents'));
+        $agent_fiches = Agent_Fiche::all();
+        return view('admin.agent_fiche.index', compact('agent_fiches'));
     }
 
     /**
@@ -31,8 +31,7 @@ class AgentsController extends Controller
      */
     public function create()
     {
-        $agents = Agent::all();
-        return view('admin.agent.create',compact('agents'));
+        return view('admin.agent_fiche.create');
     }
 
     /**
@@ -45,23 +44,35 @@ class AgentsController extends Controller
     {
         if ($request ->isMethod('post')){
             $this->validate($request,[
-                'matricule'  =>"required",
-                'nom'        =>"required",
-                'prenom'     =>"required",
-                'cnrps'      =>"required",
+
+                'matricule' =>"required",
+                'cnrps'     =>"required",
+                'nom'       =>"required",
+                'prenom'    =>"required",
+                'n_bon'     =>"required",
+                'date'      =>"required",
+                'uf'        =>"required",
+                'filiere'   =>"required",
+                'type_talon'=>"required",
+                'montant'   =>"required"
             ]);
 
-            $ag = new Agent();
-            $ag->matricule = $request->input('matricule');
-            $ag->nom       = $request->input('nom');
-            $ag->prenom    = $request->input('prenom');
-            $ag->cnrps     = $request->input('cnrps');
-            $ag->save();
+            $ag_f = new Agent_Fiche();
+
+            $ag_f->matricule  = $request->input('matricule');
+            $ag_f->cnrps      = $request->input('cnrps');
+            $ag_f->nom        = $request->input('nom');
+            $ag_f->prenom     = $request->input('prenom');
+            $ag_f->n_bon      = $request->input('n_bon');
+            $ag_f->date       = $request->input('date');
+            $ag_f->uf         = $request->input('uf');
+            $ag_f->filiere    = $request->input('filiere');
+            $ag_f->type_talon = $request->input('type_talon');
+            $ag_f->montant    = $request->input('montant');
+            $ag_f->save();
         }
-        return redirect()->route('admin.agent.index');
-
+        return redirect()->route('admin.agent_fiche.index');
     }
-
 
     /**
      * Display the specified resource.
@@ -82,8 +93,7 @@ class AgentsController extends Controller
      */
     public function edit($id)
     {
-        $agent = Agent::findOrFail($id);
-        return view('admin.agent.edit',compact('agent'));
+        //
     }
 
     /**
@@ -95,16 +105,7 @@ class AgentsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $agent = Agent::whereId($id)->first();
-
-        $ag['matricule']= $request->matricule;
-        $ag['nom']= $request->nom;
-        $ag['prenom']= $request->prenom;
-        $ag['cnrps']= $request->cnrps;
-
-        $agent->update($ag);
-
-        return redirect()->route('admin.agent.index');
+        //
     }
 
     /**
@@ -115,9 +116,6 @@ class AgentsController extends Controller
      */
     public function destroy($id)
     {
-        $agent = Agent::findOrFail($id);
-        $agent->delete();
-
-        return redirect()->route('admin.agent.index');
+        //
     }
 }

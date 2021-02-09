@@ -38,6 +38,15 @@
                                 </tr>
                               @endforeach
                             </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="5">
+                                        <div class="float-right">
+                                            {!! $users->links() !!}
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tfoot>
                         </table>
                     </div>
                 </div>

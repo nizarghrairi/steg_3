@@ -15,10 +15,10 @@ class CreateAgentsTable extends Migration
     {
         Schema::create('agents', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('matricule')->unique();
-            $table->string('nom');
-            $table->string('prenom');
-            $table->integer('cnrps')->unique();
+            $table->string('matricule')->unique();
+            $table->string('nom')->default(20);
+            $table->string('prenom')->default(20);
+            $table->string('cnrps')->unique();
             $table->timestamps();
         });
     }

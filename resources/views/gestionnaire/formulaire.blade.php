@@ -9,7 +9,7 @@
                         <input type="text" placeholder="(Nouv)">
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-2" for="exampleFormControlSelect1">UFA</label>
+                        <label class="col-sm-2" for="exampleFormControlSelect1">UF</label>
                         <select class="form-control col-sm-2 offset-1" id="exampleFormControlSelect1">
                             <option> </option>
                             <option>1</option>
@@ -59,8 +59,10 @@
                         <label class="col-sm-3" for="exampleFormControlSelect1">Type Acte</label>
                         <select class="form-control col-sm-5" id="exampleFormControlSelect1">
                             <option>Médicament</option>
-                            <option>Opération</option>
-                            <option>Traitementmedical</option>
+                            <option>RX</option>
+                            <option>Kiné</option>
+                            <option>Biologie</option>
+                            <option>Acte Médical</option>
                         </select>
                     </div>
                     <div class="form-group row">

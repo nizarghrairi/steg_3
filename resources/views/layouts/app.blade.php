@@ -19,7 +19,9 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('vendor/css/sb-admin.min.css')}}">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{asset('https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css')}}">
+    <!-- pickadate -->
+    @yield('style')
 
     <!-- Custom style for this template-->
     <link href="{{asset('vendor/css/fontawesome/css/all.min.css')}}" rel="stylesheet" type="text/css">
@@ -34,13 +36,11 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
 
                     </ul>
-
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
@@ -58,13 +58,15 @@
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
-
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
+                                    @can('show-users')
+                                    <a class="dropdown-item" href="{{route('admin.users.index')}}">Users</a>
+                                    @endcan
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
@@ -76,26 +78,21 @@
                 </div>
             </div>
         </nav>
-
         <!-- Page Wrapper -->
         <div id="wrapper">
-
         @include('partial.gestionnaire.sidebar')
-
         <!-- Content Wrapper -->
             <div id="content-wrapper" class="d-flex flex-column">
-
             <!-- Main Content -->
                 <div id="content">
                     <!-- Begin Page Content -->
                     <div class="container-fluid pt-4">
+                        @include('partial.flash')
                         @yield('content')
                     </div>
                     <!-- /.container-fluid -->
-
                 </div>
                 <!-- End of Main Content -->
-
                 <!-- Footer -->
                 <footer class="sticky-footer bg-white">
                     <div class="container my-auto">
@@ -105,17 +102,19 @@
                     </div>
                 </footer>
                 <!-- End of Footer -->
-
             </div>
             <!-- End of Content Wrapper -->
-
         </div>
         <!-- End of Page Wrapper -->
-
     </div>
+    <!-- Scripts -->
+    <script src="{{asset('vendor/js/fontawesome/all.min.js')}}"></script>
     <!-- core plugin Javascript-->
-    <script src="{{asset('vendor/js/jquery-easing/jquery-easing.min.js')}}"></script>
+    <script src="{{asset('vendor/js/jquery-easing/jquery.easing.min.js')}}"></script>
     <!--custume script for all pages-->
-    <script src="{{asset('vendor/js/sb-admin.min.js')}}"></script>--}}
+    <script src="{{asset('vendor/js/sb-admin.js')}}"></script>--}}
+
+    @yield('script')
+
 </body>
 </html>

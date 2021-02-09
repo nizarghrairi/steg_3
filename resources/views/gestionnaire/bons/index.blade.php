@@ -3,13 +3,13 @@
 
     <div class="card shadow mb-4">
         <div class="card-header py-3 d-flex">
-            <h6 class="m-0 font-weight-bold text-primary">Agent</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Bon</h6>
             <div class="ml-auto">
-                <a href="{{ route('admin.agent.create') }}" class="btn btn-primary">
+                <a href="{{route('gest.bons.create')}}" class="btn btn-primary">
                     <span class="icon text-white-50">
                         <i class="fa fa-plus"></i>
                     </span>
-                    <span class="text">Ajouter un agent actif</span>
+                    <span class="text">Ajouter un Bon</span>
                 </a>
             </div>
         </div>
@@ -19,7 +19,7 @@
             <table class="table table-hover">
                 <thead>
                 <tr>
-                    <th>#</th>
+                    <th>N°Bon</th>
                     <th>Matricule</th>
                     <th>Nom</th>
                     <th>Prenom</th>
@@ -28,18 +28,18 @@
                 </tr>
                 </thead>
                 <tbody>
-                @forelse($agents as $agent)
+                @forelse($bons as $bon)
                     <tr>
-                        <td>{{ $agent->id }}</a></td>
-                        <td>{{$agent->matricule}}</td>
-                        <td>{{$agent->nom}}</td>
-                        <td>{{$agent->prenom}}</td>
-                        <td>{{$agent->cnrps}}</td>
+                        <td>{{ $bon->id }}</a></td>
+                        <td>{{$bon->matricule}}</td>
+                        <td>{{$bon->nom}}</td>
+                        <td>{{$bon->prenom}}</td>
+                        <td>{{$bon->cnrps}}</td>
                         <td>
                             <div class="btn-group float-left">
-                                <a href="{{ route('admin.agent.edit', $agent->id) }}" class="btn btn-primary"><i class="fa fa-edit"></i></a>
-                                <a href="javascript:void(0)" onclick="if (confirm('Vous etez sur de vouloir supprime agent?') ) { document.getElementById('agent-delete-{{ $agent->id }}').submit(); } else { return false; }" class="btn btn-danger"><i class="fa fa-trash"></i></a>
-                                <form action="{{ route('admin.agent.destroy', $agent->id) }}" method="post" id="agent-delete-{{ $agent->id }}" style="display: none;">
+                                <a href="{{ route('gest.bons.edit', $bon->id) }}" class="btn btn-primary"><i class="fa fa-edit"></i></a>
+                                <a href="javascript:void(0)" onclick="if (confirm('Vous etez sur de vouloir supprime bon?') ) { document.getElementById('bon-delete-{{ $bon->id }}').submit(); } else { return false; }" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                <form action="{{ route('gest.bons.destroy', $bon->id) }}" method="post" id="bon-delete-{{ $bon->id }}" style="display: none;">
                                     @csrf
                                     @method('DELETE')
                                 </form>
@@ -48,7 +48,7 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="7" class="text-center">Aucun Agent</td>
+                        <td colspan="7" class="text-center">Aucun Bon</td>
                     </tr>
                 @endforelse
                 </tbody>
