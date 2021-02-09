@@ -144,8 +144,8 @@ class BonsController extends Controller
 
     public function print()
     {
-        $bons = bon::all();
         $user = User::all();
+        $bons = bon::orderBy('id','asc')->paginate(10);
         return view('gestionnaire.bons.print', compact('bons','user'));
     }
 }

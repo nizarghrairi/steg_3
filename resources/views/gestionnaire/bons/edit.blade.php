@@ -105,6 +105,15 @@
                     </div>
                     <div class="col-md-4 offset-1">
                         <div class="form-group">
+                            <label for="montant">CV/CE</label>
+                            <input type="number" class="form-control" value="{{old('cv_ce',$bon->cv_ce)}}" name="cv_ce" id="cv_ce">
+                            @error('cv_ce')<span class="help-block text-danger">{{$message}}</span>@enderror
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content">
+                    <div class="col-md-4 offset-1">
+                        <div class="form-group">
                             <label for="montant">Montant</label>
                             <input type="number" class="form-control" value="{{old('montant',$bon->montant)}}" name="montant" id="montant">
                             @error('montant')<span class="help-block text-danger">{{$message}}</span>@enderror
