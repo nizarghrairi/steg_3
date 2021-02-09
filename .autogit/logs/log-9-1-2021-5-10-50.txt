@@ -1,0 +1,21 @@
+-------------------- Auto-Git Log --------------------
+		Tue Feb 09 2021 05:10:50 GMT+0100 (heure normale d’Europe centrale)
+------------------------------------------------------
+
+Modified files:
+* .idea/workspace.xml
+* app/Http/Controllers/Gestionnaire/BonsController.php
+* resources/views/gestionnaire/bons/edit.blade.php
+* resources/views/gestionnaire/bons/print.blade.php
+
+
+Created files:
+* .autogit/logs/log-9-1-2021-4-40-28.txt
+
+
+Deleted files:
+* resources/views/gestionnaire/bons/show.blade.php
+* resources/views/layouts/print.blade.php
+
+
+Renamed files:
