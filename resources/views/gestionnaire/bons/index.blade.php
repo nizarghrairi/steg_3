@@ -48,10 +48,19 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="7" class="text-center">Aucun Bon</td>
+                        <td colspan="6" class="text-center">Aucun Bon</td>
                     </tr>
                 @endforelse
                 </tbody>
+                <tfoot>
+                <tr>
+                    <td colspan="6">
+                        <div class="float-right">
+                            {!! $bons->links() !!}
+                        </div>
+                    </td>
+                </tr>
+                </tfoot>
 
             </table>
         </div>

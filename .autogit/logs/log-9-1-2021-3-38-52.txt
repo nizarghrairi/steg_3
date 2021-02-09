@@ -1,0 +1,69 @@
+-------------------- Auto-Git Log --------------------
+		Tue Feb 09 2021 03:38:52 GMT+0100 (heure normale d’Europe centrale)
+------------------------------------------------------
+
+Modified files:
+* .idea/STEG_2.iml
+* .idea/php.xml
+* app/Agent.php
+* app/Http/Controllers/Admin/AgentsController.php
+* app/Http/Controllers/Admin/UsersController.php
+* composer.json
+* composer.lock
+* config/app.php
+* database/migrations/2020_12_15_043314_create_agents_table.php
+* package.json
+* resources/views/admin/agent/create.blade.php
+* resources/views/admin/agent/index.blade.php
+* resources/views/admin/users/index.blade.php
+* resources/views/auth/login.blade.php
+* resources/views/gestionnaire/formulaire.blade.php
+* resources/views/home.blade.php
+* resources/views/layouts/app.blade.php
+* resources/views/partial/gestionnaire/sidebar.blade.php
+* routes/web.php
+
+
+Created files:
+* .autogit/autogit.json
+* .idea/commandlinetools/Laravel_23_12_2020_14_21.xml
+* .idea/commandlinetools/schemas/frameworkDescriptionVersion1.1.4.xsd
+* .idea/workspace.xml
+* app/Agent_Fiche.php
+* app/Etat.php
+* app/Http/Controllers/Admin/Agents_FichesController.php
+* app/Http/Controllers/Gestionnaire/BonsController.php
+* app/Http/Controllers/Gestionnaire/EtatController.php
+* app/bon.php
+* database/migrations/2020_12_23_210607_create_bons_table.php
+* database/migrations/2021_01_02_012752_create_agents_fiches_table.php
+* public/css/pickadate/classic.css
+* public/css/pickadate/classic.date.css
+* public/css/pickadate/classic.time.css
+* public/js/form_validation/additional-methods.min.js
+* public/js/form_validation/jquery.form.js
+* public/js/form_validation/jquery.validate.min.js
+* public/js/form_validation/messages_ar.js
+* public/js/pickadate/picker.date.js
+* public/js/pickadate/picker.js
+* public/js/pickadate/picker.time.js
+* public/vendor/js/fontawesome/all.min.js
+* resources/lang/fr/auth.php
+* resources/lang/fr/pagination.php
+* resources/lang/fr/passwords.php
+* resources/lang/fr/validation.php
+* resources/views/admin/agent/edit.blade.php
+* resources/views/admin/agent_fiche/create.blade.php
+* resources/views/admin/agent_fiche/index.blade.php
+* resources/views/gestionnaire/bons/create.blade.php
+* resources/views/gestionnaire/bons/edit.blade.php
+* resources/views/gestionnaire/bons/index.blade.php
+* resources/views/gestionnaire/bons/show.blade.php
+* resources/views/layouts/print.blade.php
+* resources/views/partial/flash.blade.php
+
+
+Deleted files:
+
+
+Renamed files:
