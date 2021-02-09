@@ -95,7 +95,7 @@
                             <select class="form-control" id="type_acte" name="type_acte" >
                                 <option value=""></option>
                                 <option value="medicament">Médicament</option>
-                                <option value="kiné">Kiné</option>
+                                <option value="kine">Kiné</option>
                                 <option value="rx">Rx</option>
                                 <option value="biologie">Biologie</option>
                                 <option value="acte_medical">Acte Médical</option>
@@ -170,7 +170,7 @@
 
             if( inputValue == 'medicament')
                 $("input[name='montant']").val(montant * 0.1);
-            else if ( inputValue == 'kiné')
+            else if ( inputValue == 'kine')
                 $("input[name='montant']").val(montant * 0.2);
             else if ( inputValue == 'rx')
                 $("input[name='montant']").val(montant * 0.1);
@@ -182,27 +182,27 @@
         $('#type_acte').change(function () {
             //Select value
             var inputValue = $(this).val();
-            if (inputValue == 'medicament'){
+            if ( inputValue == 'medicament'){
                 $("input[name='cv_ce']").val('71');
                 $("input[name='cote_par_agent']").val('10%');
                 $("input[name='montant']").val('');
             }
-            else if (inputValue == 'kine'){
+            else if ( inputValue == 'kine'){
                 $("input[name='cv_ce']").val('86');
                 $("input[name='cote_par_agent']").val('20%');
                 $("input[name='montant']").val('');
             }
-            else if (inputValue == 'rx'){
+            else if ( inputValue == 'rx'){
                 $("input[name='cv_ce']").val('91');
                 $("input[name='cote_par_agent']").val('10%');
                 $("input[name='montant']").val('');
             }
-            else if (inputValue == 'biologie'){
+            else if ( inputValue == 'biologie'){
                 $("input[name='cv_ce']").val('92');
                 $("input[name='cote_par_agent']").val('10%');
                 $("input[name='montant']").val('');
             }
-            else if (inputValue == 'acte_medical'){
+            else if ( inputValue == 'acte_medical'){
                 $("input[name='cv_ce']").val('94');
                 $("input[name='cote_par_agent']").val('20%');
                 $("input[name='montant']").val('');
