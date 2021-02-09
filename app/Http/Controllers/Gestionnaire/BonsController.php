@@ -142,10 +142,10 @@ class BonsController extends Controller
         return redirect()->route('gest.bons.index');
     }
 
-    public function print($id)
+    public function print()
     {
-        $bons = bon::findOrFail($id);
+        $bons = bon::all();
         $user = User::all();
-        return view('frontend.print', compact('bons','user'));
+        return view('gestionnaire.bons.print', compact('bons','user'));
     }
 }

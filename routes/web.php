@@ -27,6 +27,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function(){
 });
 Route::namespace('Gestionnaire')->prefix('gest')->name('gest.')->group(function(){
     Route::resource('bons','BonsController');
+    Route::get('/print','BonsController@print')->name('bons.print');
 
 });
 

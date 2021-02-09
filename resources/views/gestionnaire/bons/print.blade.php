@@ -11,7 +11,7 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                    <table class="table table-hover">
+                     <table class="table table-hover">
                         <thead>
                         <tr>
                             <th>N°Bon</th>
@@ -58,9 +58,14 @@
                         </tfoot>
 
                     </table>
-                </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+@endsection
+@section('script')
+    <script>
+        window.print();
+    </script>
 @endsection

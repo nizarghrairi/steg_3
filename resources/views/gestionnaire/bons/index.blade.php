@@ -12,6 +12,13 @@
                     <span class="text">Ajouter un Bon</span>
                 </a>
             </div>
+            <div class="ml-auto">
+                <a href="{{route('gest.bons.print')}}" class="btn btn-info">
+                    <span class="icon text-white-50">
+                    </span>
+                    <span class="text">IMPRIMER</span>
+                </a>
+            </div>
         </div>
 
 
