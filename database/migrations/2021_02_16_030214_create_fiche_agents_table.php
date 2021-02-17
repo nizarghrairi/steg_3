@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAgentsFichesTable extends Migration
+class CreateFicheAgentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,15 @@ class CreateAgentsFichesTable extends Migration
      */
     public function up()
     {
-        Schema::create('agent_fiches', function (Blueprint $table) {
+        Schema::create('fiche_agents', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('matricule')->unique();
             $table->integer('cnrps')->unique();
             $table->string('nom');
             $table->string('prenom');
-            $table->integer('uf');
+            $table->string('n_bon');
+            $table->date('date');
+            $table->string('uf');
             $table->string('filiere');
             $table->string('type_talon');
             $table->decimal('montant',8,2)->default(0,00);
@@ -34,6 +36,6 @@ class CreateAgentsFichesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('agents_fiches');
+        Schema::dropIfExists('fiche_agents');
     }
 }

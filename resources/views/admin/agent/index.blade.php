@@ -48,7 +48,7 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="7" class="text-center">Aucun Agent</td>
+                        <td colspan="6" class="text-center">Aucun Agent</td>
                     </tr>
                 @endforelse
                 </tbody>

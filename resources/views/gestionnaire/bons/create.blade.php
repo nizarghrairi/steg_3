@@ -76,7 +76,24 @@
                     <div class="col-md-4 offset-1">
                         <div class="form-group">
                             <label for="uf">UF</label>
-                            <input type="text" class="form-control" placeholder="{{Request::old('uf')}}"  name="uf" id="uf">
+                            <select class="form-control" name="uf" id="uf">
+                                <option value=""></option>
+                                <option value="DIRECTION DES AFFAIRES GENERALES">DIRECTION DES AFFAIRES GENERALES</option>
+                                <option value="DIRECTION DES RESOURCES HUMAINES ET JURIDIQUE">DIRECTION DES RESOURCES HUMAINES ET JURIDIQUE</option>
+                                <option value="DIRECTION DE LA DISTRIBUTION">DIRECTION DE LA DISTRIBUTION</option>
+                                <option value="DIRECTION DE PRODUCTION ET TRANSPORT DE L'ELECTRICITE">DIRECTION DE PRODUCTION ET TRANSPORT DE L'ELECTRICITE</option>
+                                <option value="DIRECTION DE MAITRISE DE LA TECHNOLOGIE">DIRECTION DE MAITRISE DE LA TECHNOLOGIE</option>
+                                <option value="DIRECTION DU GAZ">DIRECTION DU GAZ</option>
+                                <option value="DIRECTION DES AFFAIRES FINANCIERES">DIRECTION DES AFFAIRES FINANCIERES</option>
+                                <option value="DIRECTION DES ETUDES ET DE LA PLANIFICATION">DIRECTION DES ETUDES ET DE LA PLANIFICATION</option>
+                                <option value="DIRECTION DE L'EQUIPEMENT">DIRECTION DE L'EQUIPEMENT</option>
+                                <option value="DIRECTION DE L'INFORMATIQUE">DIRECTION DE L'INFORMATIQUE</option>
+                                <option value="DIRECTION D'ORGANISATION ET SYSTEME D'INFORMATION">DIRECTION D'ORGANISATION ET SYSTEME D'INFORMATION</option>
+                                <option value="DIRECTION DE CONTROLE DE GESTION">DIRECTION DE CONTROLE DE GESTION</option>
+                                <option value="DIRECTION AUDIT">DIRECTION AUDIT</option>
+                                <option value="DIRECTION COMMERCIAL">DIRECTION COMMERCIAL</option>
+                            </select>
+{{--                            <input type="text" class="form-control" placeholder="{{Request::old('uf')}}"  name="uf" id="uf">--}}
                             @error('uf')<span class="help-block text-danger">{{$message}}</span>@enderror
                         </div>
                     </div>
@@ -92,7 +109,7 @@
                     <div class="col-md-4 offset-1">
                         <div class="form-group">
                             <label for="type_acte">Type Acte</label>
-                            <select class="form-control" id="type_acte" name="type_acte" >
+                            <select class="form-control" id="type_acte" name="type_acte">
                                 <option value=""></option>
                                 <option value="medicament">Médicament</option>
                                 <option value="kine">Kiné</option>
@@ -106,7 +123,7 @@
                     <div class="col-md-4 offset-1">
                         <div class="form-group">
                             <label for="cv_ce">Cv/Ce</label>
-                            <input type="number" class="form-control" placeholder="{{Request::old('cv_ce')}}" name="cv_ce" id="cv_ce">
+                            <input type="number" class="form-control" placeholder="{{Request::old('cv_ce')}}" name="cv_ce" id="cv_ce"/>
                             @error('cv_ce')<span class="help-block text-danger">{{$message}}</span>@enderror
                         </div>
                     </div>
@@ -130,6 +147,8 @@
 @endsection
 @section('script')
     <!-- Jquery for form-validation-->
+    <script src="{{asset('js/jquery/jquery-3.5.1.min.js')}}"></script>
+
     <script src="{{asset('js/form_validation/jquery.form.js')}}"></script>
     <script src="{{asset('js/form_validation/jquery.validate.min.js')}}"></script>
     <script src="{{asset('js/form_validation/additional-methods.min.js')}}"></script>
@@ -141,6 +160,64 @@
 
     <script>
         $(document).ready(function () {
+            $('#type_acte').change(function(){
+                //Selected value
+                var inputValue = $(this).val();
+                if ( inputValue == 'medicament'){
+                    $("input[name='cv_ce']").val('71');
+                    $("input[name='cote_par_agent']").val('10%');
+                    $("input[name='montant']").val('');
+                }
+                else if ( inputValue ==  'kine'){
+                    $("input[name='cv_ce']").val('86');
+                    $("input[name='cote_par_agent']").val('20%');
+                    $("input[name='montant']").val('');
+                }
+
+                else if ( inputValue ==  'rx'){
+                    $("input[name='cv_ce']").val('91');
+                    $("input[name='cote_par_agent']").val('10%');
+                    $("input[name='montant']").val('');
+                }
+
+                else if ( inputValue ==  'biologie'){
+                    $("input[name='cv_ce']").val('92');
+                    $("input[name='cote_par_agent']").val('10%');
+                    $("input[name='montant']").val('');
+                }
+
+                else if ( inputValue ==  'acte_medical'){
+                    $("input[name='cv_ce']").val('94');
+                    $("input[name='cote_par_agent']").val('20%');
+                    $("input[name='montant']").val('');
+                }
+
+                else{
+                    $("input[name='cv_ce']").val('');
+                    $("input[name='cote_par_agent']").val('');
+                    $("input[name='montant']").val('');
+                }
+            });
+
+            $('#montant').blur(function(){
+
+                let montant = parseFloat($("input[name='montant']").val());
+                let inputValue = $("#type_acte").val();
+
+                if ( inputValue == 'medicament')
+                    $("input[name='montant']").val(montant * 0.1);
+                else if ( inputValue ==  'kine')
+                    $("input[name='montant']").val(montant * 0.2);
+                else if ( inputValue ==  'rx')
+                    $("input[name='montant']").val(montant * 0.1);
+                else if ( inputValue ==  'biologie')
+                    $("input[name='montant']").val(montant * 0.1);
+                else if ( inputValue ==  'acte_medical')
+                    $("input[name='montant']").val(montant * 0.2)
+
+
+            });
+
             $('.pickdate').pickadate({
                 format: 'yyyy-mm-dd',
                 selectMonth:true,
@@ -152,65 +229,20 @@
         });
         $('form').validate({
             rules:{
-                'matricule'   : {required:true, digits:true},
-                'cnrps'       : {required:true, digits:true,  minlength:8, maxlength:13},
-                'nom'         :{required:true},
-                'prenom'      :{required:true},
-                'date'        :{required:true},
-                'uf'          :{required:true},
-                'n_bon'       :{required:true, digits: true},
+                'matricule'         : {required:true, digits:true},
+                'cnrps'             : {required:true, digits:true,  minlength:8, maxlength:13},
+                'nom'               :{required:true},
+                'prenom'            :{required:true},
+                'n_bon'             :{required:true, digits: true},
+                'date'              :{required:true},
+                'uf'                :{required:true},
+                'cote_par_agent'    :{required:true},
+                'type_acte'         :{required:true},
+                'cv_ce'             :{required:true},
+                'montant'           :{required:true},
             },
             submitHandler: function (form) {
                 form.submit();
-            }
-        });
-        $('#montant').blur(function() {
-            let montant = parseFloat($("input[name='montant']").val());
-            let inputValue = $("#type_acte").val();
-
-            if( inputValue == 'medicament')
-                $("input[name='montant']").val(montant * 0.1);
-            else if ( inputValue == 'kine')
-                $("input[name='montant']").val(montant * 0.2);
-            else if ( inputValue == 'rx')
-                $("input[name='montant']").val(montant * 0.1);
-            else if ( inputValue == 'biologie')
-                $("input[name='montant']").val(montant * 0.1);
-            else if ( inputValue == 'acte_medical')
-                $("input[name='montant']").val(montant * 0.2);
-        });
-        $('#type_acte').change(function () {
-            //Select value
-            var inputValue = $(this).val();
-            if ( inputValue == 'medicament'){
-                $("input[name='cv_ce']").val('71');
-                $("input[name='cote_par_agent']").val('10%');
-                $("input[name='montant']").val('');
-            }
-            else if ( inputValue == 'kine'){
-                $("input[name='cv_ce']").val('86');
-                $("input[name='cote_par_agent']").val('20%');
-                $("input[name='montant']").val('');
-            }
-            else if ( inputValue == 'rx'){
-                $("input[name='cv_ce']").val('91');
-                $("input[name='cote_par_agent']").val('10%');
-                $("input[name='montant']").val('');
-            }
-            else if ( inputValue == 'biologie'){
-                $("input[name='cv_ce']").val('92');
-                $("input[name='cote_par_agent']").val('10%');
-                $("input[name='montant']").val('');
-            }
-            else if ( inputValue == 'acte_medical'){
-                $("input[name='cv_ce']").val('94');
-                $("input[name='cote_par_agent']").val('20%');
-                $("input[name='montant']").val('');
-            }
-            else{
-                $("input[name='cv_ce']").val('');
-                $("input[name='cote_par_agent']").val('');
-                $("input[name='montant']").val('');
             }
         })
     </script>

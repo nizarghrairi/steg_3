@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Agent;
 use App\bon;
+use App\Fiche_agents;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Agent_Fiche;
@@ -20,8 +22,10 @@ class Agents_FichesController extends Controller
      */
     public function index()
     {
-        $agent_fiches = Agent_Fiche::all();
-        return view('admin.agent_fiche.index', compact('agent_fiches'));
+        $fiche_agents =Fiche_agents::all();
+        return view('admin.agent_fiche.index', compact('fiche_agents'));
+        /*$agent_fiches = Agent_Fiche::all();
+        return view('admin.agent_fiche.index', compact('agent_fiches'));*/
     }
 
     /**
@@ -31,7 +35,8 @@ class Agents_FichesController extends Controller
      */
     public function create()
     {
-        return view('admin.agent_fiche.create');
+        $fiche_agents =Fiche_agents::all();
+        return view('admin.agent_fiche.create', compact('fiche_agents'));
     }
 
     /**
@@ -57,7 +62,7 @@ class Agents_FichesController extends Controller
                 'montant'   =>"required"
             ]);
 
-            $ag_f = new Agent_Fiche();
+            $ag_f = new Fiche_agents();
 
             $ag_f->matricule  = $request->input('matricule');
             $ag_f->cnrps      = $request->input('cnrps');
@@ -93,7 +98,8 @@ class Agents_FichesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $fiche_agents = Fiche_agents::findOrFail($id);
+        return view('admin.agent_fiche.edit',compact('fiche_agents'));
     }
 
     /**
@@ -105,7 +111,22 @@ class Agents_FichesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $fiche_agents = Fiche_agents::whereId($id)->first();
+
+        $ag_f['matricule']= $request->matricule;
+        $ag_f['cnrps']= $request->cnrps;
+        $ag_f['nom']= $request->nom;
+        $ag_f['prenom']= $request->prenom;
+        $ag_f['n_bon']= $request->n_bon;
+        $ag_f['date']= $request->date;
+        $ag_f['uf']= $request->uf;
+        $ag_f['filiere']= $request->filiere;
+        $ag_f['type_talon']= $request->type_talon;
+        $ag_f['montant']= $request->montant;
+
+        $fiche_agents->update($ag_f);
+
+        return redirect()->route('admin.agent_fiche.index');
     }
 
     /**
@@ -116,6 +137,9 @@ class Agents_FichesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $fiche_agents = Fiche_agents::findOrFail($id);
+        $fiche_agents->delete();
+
+        return redirect()->route('admin.agent_fiche.index');
     }
 }

@@ -13,7 +13,7 @@
                 </a>
             </div>
             <div class="ml-auto">
-                <a href="{{route('gest.bons.print')}}" class="btn btn-info">
+                <a href="{{route('gest.bons.print')}}" target=_blanck class="btn btn-info">
                     <span class="icon text-white-50">
                     </span>
                     <span class="text">IMPRIMER</span>

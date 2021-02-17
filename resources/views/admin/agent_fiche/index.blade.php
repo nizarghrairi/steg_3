@@ -12,13 +12,13 @@
                     <span class="text">Ajouter une fiche Agent</span>
                 </a>
             </div>
-            <div class="ml-auto">
+            {{--<div class="ml-auto">
                 <a href="#" class="btn btn-info">
                     <span class="icon text-white-50">
                     </span>
                     <span class="text">IMPRIMER</span>
                 </a>
-            </div>
+            </div>--}}
             @endcan
         </div>
         <div class="table-responsive">
@@ -35,19 +35,19 @@
                 </tr>
                 </thead>
                 <tbody>
-                @forelse($agent_fiches as $agent_fiche)
+                @forelse($fiche_agents as $fiche_agent)
                     <tr>
-                        <td>{{$agent_fiche->id }}</a></td>
-                        <td>{{$agent_fiche->matricule}}</td>
-                        <td>{{$agent_fiche->nom}}</td>
-                        <td>{{$agent_fiche->prenom}}</td>
-                        <td>{{$agent_fiche->n_bon}}</td>
-                        <td>{{$agent_fiche->montant}}</td>
+                        <td>{{$fiche_agent->id }}</a></td>
+                        <td>{{$fiche_agent->matricule}}</td>
+                        <td>{{$fiche_agent->nom}}</td>
+                        <td>{{$fiche_agent->prenom}}</td>
+                        <td>{{$fiche_agent->n_bon}}</td>
+                        <td>{{$fiche_agent->montant}}</td>
                         <td>
                             <div class="btn-group float-left">
-                                <a href="{{route('admin.agent_fiche.edit', $agent_fiche->id)}}" class="btn btn-primary"><i class="fa fa-edit"></i></a>
-                                <a href="javascript:void(0)" onclick="if (confirm('Vous etez sur de vouloir supprime le bon?') ) { document.getElementById('bon-delete-{{ $agent_fiche->id }}').submit(); } else { return false; }" class="btn btn-danger"><i class="fa fa-trash"></i></a>
-                                <form action="{{ route('admin.agent_fiche.destroy', $agent_fiche->id) }}" method="post" id="bon-delete-{{ $agent_fiche->id }}" style="display: none;">
+                                <a href="{{route('admin.agent_fiche.edit', $fiche_agent->id)}}" class="btn btn-primary"><i class="fa fa-edit"></i></a>
+                                <a href="javascript:void(0)" onclick="if (confirm('Vous etez sur de vouloir supprime la fiche agents?') ) { document.getElementById('bon-delete-{{ $fiche_agent->id }}').submit(); } else { return false; }" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                <form action="{{ route('admin.agent_fiche.destroy', $fiche_agent->id) }}" method="post" id="bon-delete-{{ $fiche_agent->id }}" style="display: none;">
                                     @csrf
                                     @method('DELETE')
                                 </form>
@@ -56,7 +56,7 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="6" class="text-center">Aucun bon</td>
+                        <td colspan="6" class="text-center">Aucune fiche d'agent</td>
                     </tr>
                 @endforelse
                 </tbody>

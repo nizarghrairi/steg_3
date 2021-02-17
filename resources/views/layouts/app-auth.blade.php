@@ -19,7 +19,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('vendor/css/sb-admin.min.css')}}">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{url('https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css')}}">
 
     <!-- Custom style for this template-->
     <link href="{{asset('vendor/css/fontawesome/css/all.min.css')}}" rel="stylesheet" type="text/css">
@@ -117,6 +117,6 @@
     <!-- core plugin Javascript-->
     <script src="{{asset('vendor/js/jquery-easing/jquery-easing.min.js')}}"></script>
     <!--custume script for all pages-->
-    <script src="{{asset('vendor/js/sb-admin.min.js')}}"></script>--}}
+    <script src="{{asset('vendor/js/sb-admin.min.js')}}"></script>
 </body>
 </html>

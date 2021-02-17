@@ -109,7 +109,7 @@ class BonsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $bon = bon::whereId($id)->first();
+        $bons = bon::whereId($id)->first();
 
         $bn['n_engistrement'] = $request->n_engistrement;
         $bn['matricule'] = $request->matricule;
@@ -123,7 +123,7 @@ class BonsController extends Controller
         $bn['type_acte'] = $request->type_acte;
         $bn['cv_ce'] = $request->cv_ce;
         $bn['montant'] = $request->montant;
-        $bon->update($bn);
+        $bons->update($bn);
 
         return redirect()->route('gest.bons.index');
     }

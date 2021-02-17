@@ -14,44 +14,35 @@
 
 
         <div class="card-body">
-            <form action="{{route('gest.bons.update', $bon->id)}}" method="post" class="form">
+            <form action="{{route('admin.agent_fiche.update', $fiche_agents->id)}}" method="post" class="form">
                 @csrf
                 @method('PATCH')
                 <div class="row justify-content-md-center">
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label for="n_engistrement">N°Engistrement</label>
-                            <input type="number" class="form-control" value="{{old('n_engistrement',$bon->n_engistrement)}}" name="n_engistrement" id="n_engistrement">
-                            @error('n_engistrement')<span class="help-block text-danger">{{$message}}</span>@enderror
-                        </div>
-                    </div>
-                </div>
-                <div class="row justify-content-md-center">
-                    <div class="col-md-3">
-                        <div class="form-group">
                             <label for="matricule">Matricule</label>
-                            <input type="number" class="form-control" value="{{old('matricule',$bon->matricule)}}" name="matricule" id="matricule">
+                            <input type="number" class="form-control" value="{{old('matricule',$fiche_agents->matricule)}}" name="matricule" id="matricule">
                             @error('matricule')<span class="help-block text-danger">{{$message}}</span>@enderror
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
                             <label for="cnrps">ِCNRPS</label>
-                            <input type="number" class="form-control" value="{{old('cnrps',$bon->cnrps)}}" name="cnrps" id="cnrps">
+                            <input type="number" class="form-control" value="{{old('cnrps',$fiche_agents->cnrps)}}" name="cnrps" id="cnrps">
                             @error('cnrps')<span class="help-block text-danger">{{$message}}</span>@enderror
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
                             <label for="nom">Nom</label>
-                            <input type="text" class="form-control" value="{{old('nom',$bon->nom)}}" name="nom" id="nom">
+                            <input type="text" class="form-control" value="{{old('nom',$fiche_agents->nom)}}" name="nom" id="nom">
                             @error('nom')<span class="help-block text-danger">{{$message}}</span>@enderror
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
                             <label for="prenom">Prénom</label>
-                            <input type="text" class="form-control" value="{{old('prenom',$bon->prenom)}}" name="prenom" id="prenom">
+                            <input type="text" class="form-control" value="{{old('prenom',$fiche_agents->prenom)}}" name="prenom" id="prenom">
                             @error('prenom')<span class="help-block text-danger">{{$message}}</span>@enderror
                         </div>
                     </div>
@@ -60,14 +51,14 @@
                     <div class="col-md-4 offset-1">
                         <div class="form-group">
                             <label for="n_bon">N°bon</label>
-                            <input type="number" class="form-control" value="{{old('n_bon',$bon->n_bon)}}" name="n_bon" id="n_bon">
+                            <input type="number" class="form-control" value="{{old('n_bon',$fiche_agents->n_bon)}}" name="n_bon" id="n_bon">
                             @error('n_bon')<span class="help-block text-danger">{{$message}}</span>@enderror
                         </div>
                     </div>
                     <div class="col-md-3 offset-1">
                         <div class="form-group">
                             <label for="date">Date</label>
-                            <input type="date" name="date" value="{{old('date',$bon->date)}}" class="form-control pickdate">
+                            <input type="date" name="date" value="{{old('date',$fiche_agents->date)}}" class="form-control pickdate">
                             @error('date')<span class="help-block text-danger">{{$message}}</span>@enderror
                         </div>
                     </div>
@@ -76,7 +67,7 @@
                     <div class="col-md-4 offset-1">
                         <div class="form-group">
                             <label for="uf">UF</label>
-                            <select class="form-control" name="uf" value="{{old('uf',$bon->uf)}}" id="uf">
+                            <select class="form-control" name="uf" id="uf">
                                 <option value=""></option>
                                 <option value="DIRECTION DES AFFAIRES GENERALES">DIRECTION DES AFFAIRES GENERALES</option>
                                 <option value="DIRECTION DES RESOURCES HUMAINES ET JURIDIQUE">DIRECTION DES RESOURCES HUMAINES ET JURIDIQUE</option>
@@ -98,8 +89,8 @@
                     </div>
                     <div class="col-md-4 offset-1">
                         <div class="form-group">
-                            <label for="filiere">Cote par Agent</label>
-                            <input type="text" class="form-control" value="{{old('cote_par_agent',$bon->cote_par_agent)}}" name="filiere" id="filiere">
+                            <label for="filiere">Filière</label>
+                            <input type="text" class="form-control" value="{{old('filiere',$fiche_agents->filiere)}}" name="filiere" id="filiere">
                             @error('filiere')<span class="help-block text-danger">{{$message}}</span>@enderror
                         </div>
                     </div>
@@ -107,38 +98,22 @@
                 <div class="row justify-content">
                     <div class="col-md-4 offset-1">
                         <div class="form-group">
-                            <label for="type_talon">Type Acte</label>
-                            <select class="form-control"id="type_acte" value="{{old('type_acte',$bon->type_acte)}}" name="type_acte">
-                                <option value=""></option>
-                                <option value="medicament">Médicament</option>
-                                <option value="kiné">Kiné</option>
-                                <option value="rx">Rx</option>
-                                <option value="biologie">Biologie</option>
-                                <option value="acte_medical">Acte Médical</option>
-                            </select>
+                            <label for="type_talon">Type Talon</label>
+                            <input type="text" class="form-control" value="{{old('type_talon',$fiche_agents->type_talon)}}" name="type_talon" id="type_talon">
                             @error('type_talon')<span class="help-block text-danger">{{$message}}</span>@enderror
                         </div>
                     </div>
                     <div class="col-md-4 offset-1">
                         <div class="form-group">
-                            <label for="montant">CV/CE</label>
-                            <input type="number" class="form-control" value="{{old('cv_ce',$bon->cv_ce)}}" name="cv_ce" id="cv_ce">
-                            @error('cv_ce')<span class="help-block text-danger">{{$message}}</span>@enderror
-                        </div>
-                    </div>
-                </div>
-                <div class="row justify-content">
-                    <div class="col-md-4 offset-1">
-                        <div class="form-group">
                             <label for="montant">Montant</label>
-                            <input type="number" class="form-control" value="{{old('montant',$bon->montant)}}" name="montant" id="montant">
+                            <input type="number" class="form-control" value="{{old('montant',$fiche_agents->cnrps)}}" name="montant" id="montant">
                             @error('montant')<span class="help-block text-danger">{{$message}}</span>@enderror
                         </div>
                     </div>
                 </div>
 
                 <div class="form-group pt-4">
-                    <button type="submit" name="save" class="btn btn-primary"> Engistré </button>
+                    <button type="submit" name="save" class="btn btn-primary"> engistré </button>
                 </div>
             </form>
         </div>
@@ -168,17 +143,16 @@
         });
         $('form').validate({
             rules:{
-                'matricule'         : {required:true, digits:true},
-                'cnrps'             : {required:true, digits:true,  minlength:8, maxlength:13},
-                'nom'               :{required:true},
-                'prenom'            :{required:true},
-                'n_bon'             :{required:true, digits: true},
-                'date'              :{required:true},
-                'uf'                :{required:true},
-                'cote_par_agent'    :{required:true},
-                'type_acte'         :{required:true},
-                'cv_ce'             :{required:true},
-                'montant'           :{required:true},
+                'matricule'   : {required:true, digits:true},
+                'cnrps'       : {required:true, digits:true,  minlength:8, maxlength:13},
+                'nom'         :{required:true},
+                'prenom'      :{required:true},
+                'n_bon'       :{required:true, digits: true},
+                'date'        :{required:true},
+                'uf'          :{required:true},
+                'filiere'     :{required:true},
+                'type_talon'  :{required:true},
+                'montant'     :{required:true},
             },
             submitHandler: function (form) {
                 form.submit();

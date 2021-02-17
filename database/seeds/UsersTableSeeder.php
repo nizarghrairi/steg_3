@@ -26,7 +26,7 @@ class UsersTableSeeder extends Seeder
         ]);
 
         $gestionnaire =User::create([
-            'name'=>'gestionnaire',
+            'name'=>'gestionnaire medical',
             'email'=>'gestionnaire@admin.com',
             'password'=> Hash::make('password')
         ]);

@@ -67,7 +67,23 @@
                     <div class="col-md-4 offset-1">
                         <div class="form-group">
                             <label for="uf">UF</label>
-                            <input type="text" class="form-control" placeholder="{{Request::old('uf')}}" name="uf" id="uf">
+                            <select class="form-control" name="uf" id="uf">
+                                <option value=""></option>
+                                <option value="DIRECTION DES AFFAIRES GENERALES">DIRECTION DES AFFAIRES GENERALES</option>
+                                <option value="DIRECTION DES RESOURCES HUMAINES ET JURIDIQUE">DIRECTION DES RESOURCES HUMAINES ET JURIDIQUE</option>
+                                <option value="DIRECTION DE LA DISTRIBUTION">DIRECTION DE LA DISTRIBUTION</option>
+                                <option value="DIRECTION DE PRODUCTION ET TRANSPORT DE L'ELECTRICITE">DIRECTION DE PRODUCTION ET TRANSPORT DE L'ELECTRICITE</option>
+                                <option value="DIRECTION DE MAITRISE DE LA TECHNOLOGIE">DIRECTION DE MAITRISE DE LA TECHNOLOGIE</option>
+                                <option value="DIRECTION DU GAZ">DIRECTION DU GAZ</option>
+                                <option value="DIRECTION DES AFFAIRES FINANCIERES">DIRECTION DES AFFAIRES FINANCIERES</option>
+                                <option value="DIRECTION DES ETUDES ET DE LA PLANIFICATION">DIRECTION DES ETUDES ET DE LA PLANIFICATION</option>
+                                <option value="DIRECTION DE L'EQUIPEMENT">DIRECTION DE L'EQUIPEMENT</option>
+                                <option value="DIRECTION DE L'INFORMATIQUE">DIRECTION DE L'INFORMATIQUE</option>
+                                <option value="DIRECTION D'ORGANISATION ET SYSTEME D'INFORMATION">DIRECTION D'ORGANISATION ET SYSTEME D'INFORMATION</option>
+                                <option value="DIRECTION DE CONTROLE DE GESTION">DIRECTION DE CONTROLE DE GESTION</option>
+                                <option value="DIRECTION AUDIT">DIRECTION AUDIT</option>
+                                <option value="DIRECTION COMMERCIAL">DIRECTION COMMERCIAL</option>
+                            </select>
                             @error('uf')<span class="help-block text-danger">{{$message}}</span>@enderror
                         </div>
                     </div>

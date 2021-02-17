@@ -112,7 +112,7 @@
     <!-- core plugin Javascript-->
     <script src="{{asset('vendor/js/jquery-easing/jquery.easing.min.js')}}"></script>
     <!--custume script for all pages-->
-    <script src="{{asset('vendor/js/sb-admin.js')}}"></script>--}}
+    <script src="{{asset('vendor/js/sb-admin.js')}}"></script>
 
     @yield('script')
 
