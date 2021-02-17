@@ -1,0 +1,34 @@
+-------------------- Auto-Git Log --------------------
+		Wed Feb 17 2021 12:24:48 GMT+0100 (heure normale d’Europe centrale)
+------------------------------------------------------
+
+Modified files:
+* .idea/workspace.xml
+* app/Agent.php
+* app/Http/Controllers/Admin/Agents_FichesController.php
+* app/Http/Controllers/Gestionnaire/BonsController.php
+* database/seeds/UsersTableSeeder.php
+* resources/views/admin/agent/index.blade.php
+* resources/views/admin/agent_fiche/create.blade.php
+* resources/views/admin/agent_fiche/index.blade.php
+* resources/views/gestionnaire/bons/create.blade.php
+* resources/views/gestionnaire/bons/edit.blade.php
+* resources/views/gestionnaire/bons/index.blade.php
+* resources/views/gestionnaire/bons/print.blade.php
+* resources/views/layouts/app-auth.blade.php
+* resources/views/layouts/app.blade.php
+
+
+Created files:
+* .autogit/logs/log-9-1-2021-8-12-34.txt
+* public/js/jquery/jquery-3.5.1.min.js
+* resources/views/admin/agent_fiche/edit.blade.php
+* resources/views/layouts/print.blade.php
+
+
+Deleted files:
+
+
+Renamed files:
+* [object Object]
+* [object Object]
