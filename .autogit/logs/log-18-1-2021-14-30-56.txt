@@ -1,0 +1,15 @@
+-------------------- Auto-Git Log --------------------
+		Thu Feb 18 2021 14:30:56 GMT+0100 (heure normale d’Europe centrale)
+------------------------------------------------------
+
+Modified files:
+
+
+Created files:
+* .autogit/logs/log-18-1-2021-14-0-40.txt
+
+
+Deleted files:
+
+
+Renamed files:
